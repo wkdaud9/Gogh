@@ -1,0 +1,22 @@
+# 모든 텍스트 파일의 줄바꿈을 Git 저장소 내에서는 LF로 강제합니다.
+* text=auto eol=lf
+
+# 특정 확장자들에 대해 명시적으로 텍스트임을 지정
+*.cs text diff=csharp
+*.shader text
+*.mat text
+*.asset text
+*.unity text
+*.json text
+*.xml text
+*.txt text
+
+# 바이너리 파일들은 건드리지 않도록 설정
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.psd binary
+*.fbx binary
+*.obj binary
+*.pdf binary
+*.prefab binary
