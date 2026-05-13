@@ -2,9 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
+<<<<<<< HEAD
   serializedVersion: 3
   tags:
   - Artwork
+=======
+  serializedVersion: 2
+  tags: []
+>>>>>>> cbf72c9c3dc7b6b7778fdf762eff7f46ec09ac4d
   layers:
   - Default
   - TransparentFX
@@ -51,3 +56,30 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+<<<<<<< HEAD
+=======
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+>>>>>>> cbf72c9c3dc7b6b7778fdf762eff7f46ec09ac4d
