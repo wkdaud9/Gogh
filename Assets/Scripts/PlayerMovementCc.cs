@@ -13,12 +13,16 @@ public class PlayerMovementCc : MonoBehaviour
 
     CharacterController cc;
 
+    public bool canLook = true;
+    public bool canMove = true;
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         camTr = Camera.main.transform;
-        
     }
 
     void Update()
@@ -38,7 +42,7 @@ public class PlayerMovementCc : MonoBehaviour
         camTr.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
     }
-    
+
     void Move()
     {
         if (cc.isGrounded && velo.y < 0f) velo.y = -2f;
