@@ -207,7 +207,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
   m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 230, y: 60}
+  m_SizeDelta: {x: 300, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3293875606119910556
 CanvasRenderer:
@@ -1532,8 +1532,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1172734909246314552}
-        m_TargetAssemblyTypeName: ArtworkInteraction, Assembly-CSharp
-        m_MethodName: HideInfoUI
+        m_TargetAssemblyTypeName: Interaction, Assembly-CSharp
+        m_MethodName: CloseByPlayer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

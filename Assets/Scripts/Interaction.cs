@@ -20,6 +20,7 @@ public class Interaction : MonoBehaviour
     private bool playerInRange = false;
     private float lookTimer = 0f;
     private bool uiVisible = false;
+    private bool closedByPlayer = false;
 
 
 
@@ -31,11 +32,6 @@ public class Interaction : MonoBehaviour
         }
 
         EnsureAudioSource();
-
-        if (infoUI != null)
-        {
-            infoUI.SetActive(false);
-        }
 
         if (infoUI != null)
         {
@@ -62,6 +58,12 @@ public class Interaction : MonoBehaviour
         if (uiVisible)
         {
             UpdateAudioButtonText();
+            return;
+        }
+
+        if (closedByPlayer)
+        {
+            lookTimer = 0f;
             return;
         }
 
@@ -136,11 +138,28 @@ public class Interaction : MonoBehaviour
 
         if (audioSource.isPlaying)
         {
-            StopAudio();
+            PauseAudio();
         }
         else
         {
-            audioSource.Play();
+            if (audioSource.time > 0f)
+            {
+                audioSource.UnPause();
+            }
+            else
+            {
+                audioSource.Play();
+            }
+        }
+
+        UpdateAudioButtonText();
+    }
+
+    public void PauseAudio()
+    {
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Pause();
         }
 
         UpdateAudioButtonText();
@@ -185,14 +204,7 @@ public class Interaction : MonoBehaviour
             audioButton.interactable = true;
         }
 
-        if (audioSource.isPlaying)
-        {
-            audioButtonText.text = "°· µµΩº∆Æ ∏ÿ√ﬂ±‚";
-        }
-        else
-        {
-            audioButtonText.text = "¢∫ µµΩº∆Æ µË±‚";
-        }
+        audioButtonText.text= audioSource.isPlaying ? "°· µµΩº∆Æ ¿œΩ√¡§¡ˆ" : "¢∫ µµΩº∆Æ µË±‚";
     }
 
     private void OnTriggerEnter(Collider other)
@@ -200,9 +212,25 @@ public class Interaction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+            lookTimer = 0f;
+            closedByPlayer = false;
         }
     }
-
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            lookTimer = 0f;
+            closedByPlayer = false;
+            HideInfoUI();
+        }
+    }
+    public void CloseByPlayer()
+    {
+        closedByPlayer = true;
+        HideInfoUI();
+    }
     public void SetAudioClip(AudioClip clip)
     {
         EnsureAudioSource();
@@ -234,15 +262,5 @@ public class Interaction : MonoBehaviour
 
         audioSource.playOnAwake = false;
         audioSource.spatialBlend = 0f;
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            playerInRange = false;
-            lookTimer = 0f;
-            HideInfoUI();
-        }
     }
 }

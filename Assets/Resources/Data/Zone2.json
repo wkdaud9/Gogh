@@ -1,4 +1,7 @@
-[
+  {
+
+  "artworks": [
+
   {
     "id": "a-l-arlesienne-madame-ginoux-with-gloves-and-umbre",
     "title": "아를의 여인 (지누 부인)",
@@ -195,3 +198,4 @@
     "orientation": "가로"
   }
 ]
+}

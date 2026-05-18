@@ -1,4 +1,5 @@
-[
+{
+  "artworks": [
   {
     "id": "austin-friars-church-london",
     "title": "런던 오스틴 프라이어스 교회",
@@ -130,3 +131,4 @@
     "orientation": "세로"
   }
 ]
+}

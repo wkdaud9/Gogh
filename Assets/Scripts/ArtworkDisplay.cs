@@ -53,15 +53,6 @@ public class ArtworkDisplay : MonoBehaviour
             Debug.LogWarning($"{gameObject.name}에서 ArtworkInteraction을 찾지 못했습니다.");
         }
 
-        if (interaction != null)
-        {
-            interaction.SetAudioClip(docentAudio);
-        }
-        else
-        {
-            Debug.LogWarning($"{gameObject.name}에서 ArtworkInteraction을 찾지 못했습니다.");
-        }
-
         if (imageRenderer != null && artworkTexture != null)
         {
             imageRenderer.material.mainTexture = artworkTexture;

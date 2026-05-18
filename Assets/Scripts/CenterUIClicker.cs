@@ -27,9 +27,11 @@ public class CenterUIClicker : MonoBehaviour
         }
 
         pointerEventData = new PointerEventData(EventSystem.current);
+        // 화면 중앙을 클릭 위치로 정함
         pointerEventData.position = new Vector2(Screen.width / 2f, Screen.height / 2f);
 
         raycastResults.Clear();
+        // 화면 중앙에 UI가 있는지 검사
         EventSystem.current.RaycastAll(pointerEventData, raycastResults);
 
         if (raycastResults.Count == 0)
@@ -43,6 +45,7 @@ public class CenterUIClicker : MonoBehaviour
 
             if (button != null)
             {
+                // 찾은 버튼의 클릭 기능을 실행
                 button.onClick.Invoke();
 
                 Debug.Log("버튼 클릭 실행: " + button.gameObject.name);
